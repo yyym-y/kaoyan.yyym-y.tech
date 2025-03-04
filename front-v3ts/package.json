@@ -1,0 +1,41 @@
+{
+  "name": "front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.74",
+    "@wsfe/vue-tree": "^4.1.1",
+    "axios": "^1.8.1",
+    "core-js": "^3.8.3",
+    "element-plus": "^2.9.5",
+    "pinia": "^3.0.1",
+    "vditor": "^3.10.9",
+    "vue": "^3.2.13",
+    "vue-pdf-embed": "^2.1.2",
+    "vue-router": "^4.0.3",
+    "vue3-touch-events": "^5.0.13",
+    "xgplayer": "^3.0.21",
+    "xgplayer-hls": "^3.0.21"
+  },
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.56.3",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "compression-webpack-plugin": "^11.1.0",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "typescript": "^5.8.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

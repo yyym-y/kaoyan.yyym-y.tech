@@ -1,0 +1,62 @@
+// Aside
+@Icon-Outer-Height : 150px;
+@Icon-width : 100px;
+@Icon-height : 70px;
+
+// Header
+@SearchBar-width : 70%;
+
+
+
+// function
+.Border-Bottom(@color, @style : solid, @width : 1px) {
+    border-bottom-style: @style;
+    border-bottom-color: @color;
+    border-bottom-width: @width;
+}
+
+.Flex-Center() {
+    display: flex;
+    justify-items: center;
+}
+
+.Flex-Center-Vertical() {
+    display: flex;
+    align-items: center;
+}
+
+.subtitle() {
+    color: #606266;
+    padding-bottom: 8px;
+    width: 100%;
+    margin-bottom: 4px;
+    .Border-Bottom(#A8ABB2)
+}
+
+@nomal-vedio-width : 11em;
+@lecture-vedio-width : 20em;
+
+.normal-video-item() {
+    width: @nomal-vedio-width;
+    max-width: 270px;
+    min-width: 70px;
+    margin-right: 16px;
+    
+    img {
+        width: @nomal-vedio-width;
+        aspect-ratio: 3 / 4;
+    }
+}
+
+.lecture-vedio-item() {
+    width: @lecture-vedio-width;
+    overflow: hidden;
+    margin-top:10px;
+    max-width: 300px;
+    margin-right: 16px;
+
+    img {
+        width: @lecture-vedio-width;
+        aspect-ratio: 5 / 3;
+    }
+}
