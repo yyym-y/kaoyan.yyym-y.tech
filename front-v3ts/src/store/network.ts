@@ -1,9 +1,9 @@
-import { baseURL } from "@/network/require";
+import { baseURL } from "@/config";
 import { defineStore } from "pinia";
 
 export const useServeURL = defineStore('url', {
 	state: () => ({
-		url : baseURL
+		url : baseURL,
 	}),
 	getters : {
 		mergeURL: (state) => {

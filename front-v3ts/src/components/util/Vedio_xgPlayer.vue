@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div id="XGplayer" v-touch:hold="handleHold" v-touch:release="handleRelease"></div>
+    <div id="XGplayer"
+      v-touch:hold="handleHold" v-touch:release="handleRelease"
+      v-touch:swipe.left="decreaseCurrentTime" v-touch:swipe.right="addCurrentTime"></div>
     <transition name="el-fade-in-linear">
       <div class="notice" v-show="showNotce">已为你跳转到上次观看时间</div>
     </transition>
@@ -98,6 +100,15 @@ const handleRelease = () => {
   isHold = false
   player.playbackRate = oriPlayRate
   console.log("release")
+}
+// 左滑右滑改变时长
+const addCurrentTime = () => {
+  console.log("add")
+  player.currentTime += 5
+}
+const decreaseCurrentTime = () => {
+  console.log("down")
+  player.currentTime -= 5
 }
 
 </script>

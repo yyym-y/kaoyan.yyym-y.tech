@@ -28,7 +28,7 @@ import { useServeURL } from '@/store/network';
 import { storeToRefs } from 'pinia'
 const serveStore = useServeURL()
 const { mergeURL } = storeToRefs(serveStore)
-const pdf_url = computed(() => mergeURL.value(`note/pdfContent?pdfPath=${props.noteId}`))
+const pdf_url = computed(() => mergeURL.value(`note/pdfContent?pdfPath=${props.noteId}&page=1`))
 
 const pageRefs = ref([])
   const pageVisibility = ref({})

@@ -1,9 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-
-// 必须以 '/' 结尾
-// export const baseURL = "http://127.0.0.1:8888"
-
-export const baseURL = "http://220.167.104.236:21266"
+import { baseURL } from '@/config'
 
 // 创建 axios 实例
 const request: AxiosInstance = axios.create({

@@ -10,6 +10,10 @@
           <el-icon><Notebook /></el-icon>
           <span>共享笔记</span>
         </el-menu-item>
+        <el-menu-item index="3" @click="ToORC()">
+          <el-icon><Camera /></el-icon>
+          <span>ORC</span>
+        </el-menu-item>
       </el-menu>
     </div>
 </template>
@@ -25,6 +29,11 @@
   };
   const ToHome = () => {
     router.push({ name : "home"}).catch(err => {
+      console.error(err)
+    })
+  }
+  const ToORC = () => {
+    router.push({ name : "orc"}).catch(err => {
       console.error(err)
     })
   }

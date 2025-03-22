@@ -4,9 +4,9 @@ import (
 	adminHandler "back/biz/handler/admin"
 	indexHandler "back/biz/handler/index"
 	"back/biz/handler/note"
+	"back/biz/handler/orc"
 	vedioHandler "back/biz/handler/vedio"
 
-	// vedioHandler "back/biz/handler/vedio"
 	"back/biz/middle"
 	"context"
 	"log"
@@ -55,7 +55,7 @@ func customizedRegister(r *server.Hertz) {
 	admin.Use(auth.MiddlewareFunc())
 	admin.GET("/developLog", adminHandler.GetDevelopContentHandler)
 	admin.POST("/saveDevelopLog", adminHandler.SaveDevelopContentHandler)
-	// admin.POST("/uploadImg", adminHandler.UploadImgHandler)
+	admin.POST("/uploadImg", adminHandler.UploadImgHandler)
 	// admin.POST("/uploadVedio", adminHandler.UploadVedioHandler)
 	admin.POST("/createVedio", adminHandler.CreateVedioHandler)
 	// admin.POST("/editVedio", adminHandler.EditVedioHandler)
@@ -74,4 +74,9 @@ func customizedRegister(r *server.Hertz) {
 	noteAdminGroup.POST("/uploadNote", note.UploadNoteHandler)
 	noteAdminGroup.POST("/saveContent", note.SaveNoteContentHandler)
 	noteAdminGroup.POST("/fileChange", note.FileChangeHandler)
+
+	orcGroup := r.Group("orc")
+	orcGroup.Use(auth.MiddlewareFunc())
+	orcGroup.POST("/uploadImg", orc.UploadImgHandler)
+	orcGroup.POST("/latexOrc", orc.LatexOrcController)
 }
