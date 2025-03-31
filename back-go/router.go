@@ -53,11 +53,15 @@ func customizedRegister(r *server.Hertz) {
 	// 管理员路由
 	admin := r.Group("admin")
 	admin.Use(auth.MiddlewareFunc())
+	// 管理员通用路由
+	admin.POST("/uploadImg", adminHandler.UploadImgHandler)
+	// 管理员日志路由
 	admin.GET("/developLog", adminHandler.GetDevelopContentHandler)
 	admin.POST("/saveDevelopLog", adminHandler.SaveDevelopContentHandler)
-	admin.POST("/uploadImg", adminHandler.UploadImgHandler)
+	// 管理员影视管理路由
 	// admin.POST("/uploadVedio", adminHandler.UploadVedioHandler)
 	admin.POST("/createVedio", adminHandler.CreateVedioHandler)
+	admin.GET("/getVedioTable", adminHandler.GetVedioTableHandler)
 	// admin.POST("/editVedio", adminHandler.EditVedioHandler)
 	// admin.POST("/createCarousel", adminHandler.CreateCarouselHandler)
 	// admin.GET("/showVedio", adminHandler.ShowVedioHandler)

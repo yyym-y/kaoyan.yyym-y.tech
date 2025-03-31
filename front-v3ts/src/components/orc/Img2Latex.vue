@@ -29,7 +29,7 @@
 
 <script lang="ts" setup>
 import { useServeURL } from "@/store/network";
-import { UploadProps } from "element-plus";
+import { ElMessage, UploadProps } from "element-plus";
 import { storeToRefs } from "pinia";
 import { reactive, ref } from "vue";
 import { latexOrc } from '../../network/orc';
@@ -63,6 +63,14 @@ const begin = () => {
     model : modelValue.value
   }).then(res => {
     console.log(res)
+    if(res.code == 0) {
+      ElMessage.error("识别失败[本服务器异常] " + res.msg)
+      return
+    }
+    if(res.data.res == null) {
+      ElMessage.error("识别失败[api服务器异常] " + res.data.err_info.err_msg + "/" + res.data.err_info.err_type)
+      return
+    }
     result.value = res.data.res.latex
   })
 }

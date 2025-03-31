@@ -139,7 +139,6 @@ func LatexOrcController(ctx context.Context, c *app.RequestContext) {
 	if req.Model == 1 {
 		modelApi = Lconf.LatexLightApi
 	}
-
 	imgFilePath := filepath.Join(Lconf.TemSavePath, req.FileName)
 	fmt.Println(imgFilePath)
 	imgFileReader, err := os.Open(imgFilePath)
@@ -160,6 +159,11 @@ func LatexOrcController(ctx context.Context, c *app.RequestContext) {
 		fmt.Println("Error copying file to form:", err)
 		return
 	}
+	// data 参数
+	if recMode, ok := data["rec_mode"]; ok {
+		writer.WriteField("rec_mode", fmt.Sprintf("%v", recMode))
+	}
+
 	writer.Close()
 
 	// 创建一个新的 HTTP POST 请求
